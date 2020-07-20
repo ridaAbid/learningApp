@@ -6,5 +6,4 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
   # get '/cohort/subject/:name', to: 'subjects#show', as: 'subject'
-
 end

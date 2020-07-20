@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Cohort.create(syllabus: 'CBSE', grade: '10')
-Cohort.create(syllabus: 'ICSE', grade: '10')
-Cohort.create(syllabus: 'STATE_BOARD', grade: '10')
+Cohort.create(syllabus: 'CBSE', grade: '10', cohort_id: 'CBSE_GRADE_10')
+Cohort.create(syllabus: 'ICSE', grade: '10', cohort_id: 'ICSE_GRADE_10')
+Cohort.create(syllabus: 'STATE_BOARD', grade: '10', cohort_id: 'STATE_BOARD_GRADE_10')
 
 Subject.create(name: 'Mathematics', cohort_name: 'CBSE_GRADE_10')
 Subject.create(name: 'Science', cohort_name: 'ICSE_GRADE_10')
