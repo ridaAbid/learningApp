@@ -1,10 +1,9 @@
 class Cohort < ApplicationRecord
-	attr_reader :syllabus, :grade
-	# has_many :subjects
+	has_many :subjects
 
-	def cohort_name
-		Cohort.all.each do |cohort|
-			"COHORT_"+"#{cohort.syllabus}_#{cohort.grade}"
-  	end
+
+	def cohort_name(cohort)
+		"COHORT_"+cohort.syllabus+"_GRADE_"+cohort.grade
+	end
 
 end

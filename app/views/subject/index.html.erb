@@ -1,2 +1,8 @@
-<h1>Subject#index</h1>
-<p>Find me in app/views/subject/index.html.erb</p>
+<h1>Subject</h1>
+
+<%= form_with(model: @chapter, url: chapters_path, local: true) do |f| %>
+<%= select_tag 'subject_id', options_for_select(@subjects.collect{ |s| [s.subject_name, s.id] }) %> 
+<br /><br />
+
+<%= f.submit "Submit"%><br /><br />
+<% end %>

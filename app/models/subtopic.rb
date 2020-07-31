@@ -1,3 +1,4 @@
 class Subtopic < ApplicationRecord
-	belongs_to :chapter
+  belongs_to :chapter
+  has_many :questionsAndAnswers
 end

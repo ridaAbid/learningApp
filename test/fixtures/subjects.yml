@@ -2,10 +2,8 @@
 
 one:
   subject_name: MyString
-  cohort_id: MyString
   cohort: one
 
 two:
   subject_name: MyString
-  cohort_id: MyString
   cohort: two

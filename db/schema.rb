@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_20_045044) do
+ActiveRecord::Schema.define(version: 2020_07_30_092529) do
 
   create_table "chapters", force: :cascade do |t|
-    t.string "name"
-    t.string "subject_name"
-    t.integer "number"
+    t.string "chapter_name"
+    t.integer "subject_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id"], name: "index_chapters_on_subject_id"
   end
 
   create_table "cohorts", force: :cascade do |t|
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_07_20_045044) do
     t.string "grade"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "cohort_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -35,18 +34,28 @@ ActiveRecord::Schema.define(version: 2020_07_20_045044) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "subjects", force: :cascade do |t|
-    t.string "name"
-    t.string "cohort_name"
+  create_table "questions", force: :cascade do |t|
+    t.string "questionAndAnswer"
+    t.integer "subtopic_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["subtopic_id"], name: "index_questions_on_subtopic_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "subject_name"
+    t.integer "cohort_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cohort_id"], name: "index_subjects_on_cohort_id"
   end
 
   create_table "subtopics", force: :cascade do |t|
-    t.string "topic_name"
-    t.string "chapter_name"
+    t.string "subtopic"
+    t.integer "chapter_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["chapter_id"], name: "index_subtopics_on_chapter_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,4 +70,8 @@ ActiveRecord::Schema.define(version: 2020_07_20_045044) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chapters", "subjects"
+  add_foreign_key "questions", "subtopics"
+  add_foreign_key "subjects", "cohorts"
+  add_foreign_key "subtopics", "chapters"
 end

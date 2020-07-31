@@ -1,7 +1,5 @@
 class ChapterController < ApplicationController
   def index
-  end
-  def show
-    @chapter = Chapter.find(params[:id])
+  	@chapters = Chapter.where(subject_id: params[:subject_id])
   end
 end

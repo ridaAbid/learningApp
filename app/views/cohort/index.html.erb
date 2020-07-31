@@ -1,8 +1,7 @@
 <h1>Cohort</h1>
 
-<%= form_with(model: @cohort, url: chapter_index_path, local: true) do |f| %>
-<%= select(@cohorts, :syllabus, options_for_select([["icse","1"],["cbse","2"]]), {:prompt => "--select cohort--"}) %>
-<%= select(@cohorts, :syllabus, Cohort.all.collect { |p| [ p.grade, p.grade ]}, {:prompt => "--select cohort--"}) %>
-
-<%= f.submit %><br /><br />
+<%= form_with(model: @cohort, url: subjects_path, local: true) do |f| %>
+<%= select_tag 'cohort_id', options_for_select(@cohorts.collect{ |c| [ c.cohort_name(c), c.id] }) %>
+<br /><br />
+<%= f.submit "Submit"%><br /><br />
 <% end %>

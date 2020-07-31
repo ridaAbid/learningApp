@@ -4,15 +4,8 @@ class CohortController < ApplicationController
   	@cohorts = Cohort.all
   end
 
-  def displayCohort
-  	Cohort.all.each do |cohort|
-  		cohort.cohort_id
-  	end
+  def show
+  	@cohort = Cohort.find(params[:id])
   end
 
-  def displayCohortWithFullName
-  	Cohort.all.each do |cohort|
-  		"COHORT_"+"#{cohort.syllabus}_#{cohort.grade}"
-  	end
-  end
 end
