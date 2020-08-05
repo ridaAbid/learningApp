@@ -1,6 +1,6 @@
-<h1>Cohort</h1>
+<h1>Cohorts</h1>
 
-<%= form_with(model: @cohort, url: subjects_path, local: true) do |f| %>
+<%= form_with(model: @cohort, url: subject_index_path, method: :get, local: true) do |f| %>
 <%= select_tag 'cohort_id', options_for_select(@cohorts.collect{ |c| [ c.cohort_name(c), c.id] }) %>
 <br /><br />
 <%= f.submit "Submit"%><br /><br />

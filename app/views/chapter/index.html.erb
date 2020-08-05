@@ -1,6 +1,6 @@
-<h1>Chapter</h1>
+<h1>Chapters</h1>
 
-<%= form_with(model: @chapter, url: subtopics_path, local: true) do |f| %>
+<%= form_with(model: @chapter, url: subtopic_index_path, method: :get, local: true) do |f| %>
 <%= select_tag 'chapter_id', options_for_select(@chapters.collect{ |c| [ c.chapter_name, c.id] }) %>
 <br /><br />
 <%= f.submit "Submit"%><br /><br />

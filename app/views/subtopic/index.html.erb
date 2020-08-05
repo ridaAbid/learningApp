@@ -1,6 +1,6 @@
-<h1>Subtopic</h1>
+<h1>Subtopics</h1>
 
-<%= form_with(model: @subtopic, url:questions_path, local: true) do |f| %>
+<%= form_with(model: @subtopic, url: question_index_path,  method: :get, local: true) do |f| %>
 <%= select_tag 'subtopic_id', options_for_select(@subtopics.collect{ |c| [ c.subtopic, c.id] }) %>
 <br /><br />
 <%= f.submit "Submit"%><br /><br />

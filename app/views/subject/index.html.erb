@@ -1,6 +1,6 @@
-<h1>Subject</h1>
+<h1>Subjects</h1>
 
-<%= form_with(model: @chapter, url: chapters_path, local: true) do |f| %>
+<%= form_with(model: @chapter, url: chapter_index_path, method: :get, local: true) do |f| %>
 <%= select_tag 'subject_id', options_for_select(@subjects.collect{ |s| [s.subject_name, s.id] }) %> 
 <br /><br />
 
